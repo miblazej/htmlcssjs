@@ -1,0 +1,67 @@
+<html>
+    <form action="http://abc.com./login.php">
+        <p>Nazwa uzytkownika
+            <input type="text" name ="username" size="30" maxlength="30" required="required" />
+        </p>
+        <p>Haslo
+        <input type="password" name="password" size="15" maxlength="30" required="required" />
+        </p>
+        <p>Co myslisz o koncercie
+        </p>
+        <textarea name="comments" id="1" cols="30" rows="10">Napisz co myslisz o alkoholikach degenerujacych mlodzierz</textarea>
+        <p>Wybierz swoj ulubiony rodzaj muzyki:
+            <br />
+            <input type="radio" name="genre" value="rock" checked="checked" /> rock
+            <input type="radio" name="genre" value="Pop" /> Pop
+        </p>
+        <p>Wybierz swoja ulubiona usługę muzyczna:
+            <br />
+            <input type="checkbox" name="service" value="Itunes" checked="checked"> Itunes
+            <input type="checkbox" name="service" value="Torrenty"> Torrenty
+        </p>
+        <p>Jakie urzadzenia uzywasz do sluchania muzyki?
+        </p>
+        <select name="devices">
+            <option value="Radio w samochodzie"> Radio w samochodzie</option>
+            <option value="Radia w internecie"> Radio w Internecie</option>
+            <option value="Nie sluchamy muzyki WTF" > Nie slucham</option>
+        </select>
+        <p>Kto wedlug ciebie jest najwiekszym pozerem na polskiej scenie muzycznej</p>
+        <select name="instruments" size="3" multiple="multiple">
+            <option value="gitara">gitara</option>
+            <option value="andrzej">andrzej</option>
+            <option value="Peja">Peja</option>
+            <option value="Tede">Tede syn milionera</option>
+        </select>
+        <fieldset>
+            <legend>Informacje dodatkowe</legend>
+            <p>Przeslij plik muzyczny w formacie MP3:</p>
+            <input type="file" name="user-strong" /><br />
+            <input type="submit" name="Przeslij" />
+            <p>Subskrybuj:</p>
+            <input type="text" name="email" />
+            <input type="submit" name="subscribe" value="Subskrybuj" />
+            <p>Przycisk z obrazkiem</p>
+            <input type="image" src="obrazy/a.jpg">
+            <button><img src="obrazy/a.jpg" alt="image"> Test</button><input type="hidden" name="bookmark" value="liryka">
+            <br/ >
+            <label>Wiek: <input type="text" name="age"></label>
+            <br/ >
+            Plec
+            <input id="female" type="radio" name="gender" value="f">
+            <label for="female">kobieta</label>
+            <input id="male" type="radio" name="gender" value="m">
+            <label for="male">mezczyzna</label>
+            <br/ >
+            <input type="date" name="depart">
+            <p>Podaj adress emailowy</p>
+            <input type="email" name="email" />
+            <input type="submit" value="Przeslij" />
+            <br/ >
+            <p>Szukaj</p>
+            <input type="search" name="search" placeholder="Poszukiwany tekst" />
+            <input type="submit" value="Szukaj" />
+        </fieldset>
+    </form>
+
+</html>
