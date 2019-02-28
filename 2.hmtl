@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+    <div>
+        <p>Każdego dnia propaganda zachodnia w postaci przemysłu rozrywkowego walczy o umysły młodych ludzi z calego świata.
+            W większości jest to celowe działanie mające na celu deprawacje a co za tym idzie osłabienie struktury innych społeczeństw
+            zaczynając od najbardziej bezbronnych. Pieniadze nie graja roli gra toczy się o władze nad umysłami.
+            Z drugiej strony śmiało można powiedzieć że model taki jest podstawa przetrwania ludzi na ziemi. Tak jak w piramidzie potrzeb tak 
+            samo w spoleczenstwie potrzebne sa rozne czesci. Wazne jednak aby mobilnosc spoleczna stala na wysokim poziomie. Ludzie poprzez nauke oraz
+            prace powinni byc w stanie zmienic swoj los.
+        </p>
+    </div>
+    <div>
+        <p>
+            I tak w naturalny sposob osoby lepiej wychowane badz z doglebsza intuicja sa w stanie wydedukowac ze tak jak 
+            symulacyjnym srodowisku wojny tzn w grach komputerowych pewna czesc spoleczenstwa jest skazana na zaglade kosztem drugiej.
+            System polityczny nie gra roli. Czynnikiem ktory ma najwiekszy wplyw na dobro ogolu spoleczenstwa jest technologia oraz madre jej uzytkowanie.
+        </p>
+    </div>
+    <h1>Strona internetowa Antoina Poule</h1>
+    <ul>
+        <li>Ssij paleczke</li>
+        <li>Studnia</li>
+        <li>Biedny i glupi</li>
+        <li>Bieda w metrze</li>
+        <li>Paryz miasto iluzji</li>
+        <li>Szkoda slow</li>
+    </ul>
+</body>
+</html>

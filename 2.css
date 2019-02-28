@@ -1,0 +1,22 @@
+div.box {
+    min-width: 500;
+    max-width: 500;
+    background-color: black;
+}
+p {
+    height: 95%;
+    width: 60%;
+    background-color: aliceblue;
+    color: black;
+    text-align: center;
+    padding: 5%;
+    margin: 1ch;
+    overflow: scroll;
+    border: 1cm dotted black;
+}
+li{
+    display: inline;
+    border: 2cm dashed cyan;
+    background: cyan;
+    border-top-right-radius: 1cm 1cm;
+}

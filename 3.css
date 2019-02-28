@@ -1,0 +1,5 @@
+ol{
+    width: 30px;
+    list-style-type: lower-roman;
+    list-style-position: inside;
+}

@@ -1,0 +1,17 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: crimson;
+}
+h1, h2 {color: hotpink;
+background-blend-mode: color;
+background-color: black;
+text-transform: uppercase;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+text-align: center;
+}
+p{color: black;
+background-color: rgb(247, 251, 253);
+font-weight: bolder;
+line-height: 2em;
+text-indent: 1%
+}
