@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Diagnozowanie programów</title>
+<link href="../_css/site.css" rel="stylesheet">
+<script src="../_js/jquery-1.6.3.min.js"></script>
+<script>
+$(document).ready(function() {
+var score = 0;
+var quiz = [
+  ['Ile księżyców ma Ziemia?',1,[0,1,2,3]],
+  ['Ile księżyców ma Saturn?',31,[0,14,31,160]],
+  ['Ile księżyców ma Venus?',1,[0,1,11,15]]
+];
+//Pobranie łącznej liczby pytań.
+var totalQuestion=quiz.length;
+
+//Generacja pytania i wyświetlenie potencjalnych odpowiedzi.
+function askQuestion() {
+ // Pobranie tekstu pytania.
+ var currentQ=quiz.pop();
+ // get the question text
+ $('#question').text(currentQ[0]);
+ /* Wywołanie funkcji buildAnswers(), która 
+ generuje przyciski opcji z możliwymi odpowiedziami. */
+ var answers=buildAnswers(currentQ[2]);
+//Dodanie odpowiedzi do strony.
+ $('#answers').html(answers);
+//Funkcja obsługi zdarzeń click przetwarzająca odpowiedź użytkownika.
+ $('#answers input').click(function() {
+    if ($(this).val()==currentQ[1]) {
+      score++;
+      $('#result').prepend('Prawidłowa odpowiedź!');
+    } else {
+      $('#result').prepend('Błąd. Prawidłowa odpowiedź to '+currentQ[1]);
+    }
+    // Wyświetlanie przycisku Następne pytanie.
+    $('#next').show();
+  }); // koniec funkcji click()
+}
+
+function buildAnswers(answers) {
+  var answerHTML='';
+  //Przejście w pętli po elementach tablicy answers.
+  for (i=0;i<=answers.length;i++) {
+	// Tworzenie przycisku opcji.
+    answerHTML+=' <input name="quiz" type="radio" value="';
+    answerHTML+=answers[i] + '">' + answers[i];
+  }
+  //Zwracanie gotowego kodu HTML przycisków opcji.
+  return answerHTML;
+}
+
+function giveResults() {
+	var results='<p>Liczba punktów ' + score + ' z ' + totalQuestion + '.</p>';
+  $('#questionArea').html(results); 
+}
+
+$('#next').click(function() {
+  $(this).hide();
+  $('#result').text('');
+  if (quiz.length==totalQuestion) {
+    $(this).val('Następne pytanie >>');
+  } else if (quiz.length==1) {
+    $(this).val('Pokaż wyniki');
+  }
+  if (quiz.length>0) {
+    askQuestion();
+  } else {
+    giveResults();
+  }
+});
+
+
+}); // koniec funkcji ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <p class="logo">JavaScript <i>i</i> jQuery <i class="mm">Nieoficjalny<br>podręcznik</i></p>
+  </div>
+	<div class="content">
+		<div class="main">
+			<h1>Stosowanie debugera w Firefoksie</h1>
+			<div id="questionArea">
+  <p id="question"></p>
+  <p id="answers"></p>
+  <p id="result"></p>
+  <input type="button" value="Uruchom quiz" id="next">
+  </div>
+		</div>
+	</div>
+  <div class="footer">
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </div>
+</div>
+</body>
+</html>

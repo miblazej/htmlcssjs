@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stosowanie instrukcji warunkowych</title>
+<link href="../_css/site.css" rel="stylesheet">
+<script>
+var szczesliwynumer = prompt('Jak jest twoja szczesliw liczba? ');
+szczesliwynumer = parseInt(szczesliwynumer, 10);
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+  <div class="header">
+    <p class="logo">JavaScript <i>i</i> jQuery <i class="mm">Nieoficjalny<br>podręcznik</i></p>
+  </div>
+  <div class="content">
+    <div class="main">
+      <h1>Stosowanie instrukcji warunkowych</h1>
+      <script>
+        x = 15
+      do{
+        x--;
+        document.write("<p> BIALE JEROZY RUHY WIERH<br> </p>");
+      } while( x > 10)
+      if (szczesliwynumer == 7){
+        document.write('<p> 7 to takze moja szczesliwa liczba!</p>');
+      } 
+      else if (szczesliwynumer == 13 || szczesliwynumer == 0){
+        document.write("<p> Jestes przesadny jak szewc! <p>")
+      }
+      else if (isNaN(szczesliwynumer)){
+        document.write("<p> Prosilem o liczbe w systemie arabskim </p>")
+      }
+      else {
+        document.write("<p>Twoja szczesliwa liczba to " + szczesliwynumer + "!</p>")
+      }
+      x = 1;
+      while(x < 10){
+        document.write("<p>Dwie rece sa lepsze niz jedna" + "<br>" + x + "<br>" + "</p>");
+        x++;
+      }
+	  </script> 
+    </div>
+  </div>
+  <div class="footer">
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </div>
+</div>
+</body>
+</html>

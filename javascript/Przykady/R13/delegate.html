@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stosowanie funkcji .delegate()</title>
+<link href="../_css/site.css" rel="stylesheet">
+<style>
+.add {
+	display: inline-block;
+	background-color: rgba(255,255,255,.8);
+	font-size: 12px;
+	padding: 0 5px;
+	margin-left: 10px;
+	color: black;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.add:hover {
+	color: rgb(102,102,102);
+	background-color: rgb(204,255,0);	
+}
+</style>
+<script src="../_js/jquery-1.6.3.min.js"></script>
+<script>
+$(document).ready(function() {
+   // zastosowanie funkcji bind
+   $('#without .add').bind('click',function() {
+	   var $this = $(this);
+	   var $parent = $this.parent();
+	   $parent.after($parent.clone());
+	   $this.remove();	   
+   }); // koniec funkcji bind
+   
+   //zastosowanie funkcji delegate
+   $('#with').delegate('.add','click',function() {
+	   var $this = $(this);
+	   var $parent = $this.parent();
+	   $parent.after($parent.clone());
+	   $this.remove();	   
+   }); //koniec funkcji delegate
+}); // koniec funkcji ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <p class="logo">JavaScript <i>i</i> jQuery <i class="mm">Nieoficjalny<br>podręcznik</i></p>
+  </div>
+	<div class="content">
+	  <div class="main">
+	    <h1>Stosowanie funkcji .delegate()</h1>
+        <div id="without">
+        <h2>z użyciem funkcji Bind (działa tylko za pierwszym razem)</h2>
+        <p>Element <span class="add">dodaj nowy element</span></p>   
+        </div>
+        <div id="with">
+        <h2>z użyciem funkcji Delegate (można dodawać kolejne elementy)</h2>
+        <p>Element <span class="add">dodaj nowy element</span></p>   
+        </div>
+  </div>
+  <div class="footer">
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </div>
+</div>
+</body>
+</html>

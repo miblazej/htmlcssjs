@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Wtyczka AnythingSlider</title>
+<link href="../_css/site.css" rel="stylesheet">
+<link href="anythingSlider/anythingslider.css" rel="stylesheet">
+<script src="../_js/jquery-1.6.3.min.js"></script>
+<script src="anythingSlider/jquery.anythingslider.min.js"></script>
+<script>
+$(document).ready(function() {
+	$('#slider').anythingSlider();
+}); // koniec funkcji ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <p class="logo">JavaScript <i>i</i> jQuery <i class="mm">Nieoficjalny<br>podręcznik</i></p>
+  </div>
+  <div class="content">
+    <div class="main">
+      <h1>Wtyczka AnythingSlider</h1>
+      <div id="slider">
+        <div><a href="page1.html"><img src="images/pumpkin.jpg" width="700" height="390" alt="Dynia"></a></div>
+        <div><a href="page2.html"><img src="images/grapes.jpg" width="700" height="390" alt="Winogrona"></a></div>
+        <div><a href="page3.html"><img src="images/various.jpg" width="700" height="390" alt="Rozmaitości"></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </div>
+</div>
+</body>
+</html>

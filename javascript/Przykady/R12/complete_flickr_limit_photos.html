@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Flickr Feed</title>
+<link href="../_css/site.css" rel="stylesheet">
+<style>
+.image {
+	float: left;
+	padding: 10px;
+	border: solid 1px white;
+	margin: 0 30px 30px 0;
+}
+.image:hover {
+	border-color: red;
+	background-color: rgb(204,204,204);	
+}
+
+
+</style>
+<script src="../_js/jquery-1.6.3.min.js"></script>
+<script>
+$(document).ready(function() {
+
+var URL = "http://api.flickr.com/services/feeds/photos_public.gne";
+//zmień ten identyfikator (ID) na inny (na przykład swój własny)
+var ID = "25053835@N03"; // Identyfikator Instytutu Smithsona
+var jsonFormat = "&format=json&jsoncallback=?";
+var ajaxURL = URL + "?id=" + ID + jsonFormat;
+
+//zmień, by określić ile zdjęć ma być wyświetlanych (maksymalnie można wyświetlać 20)
+var maxPhotos = 5;
+
+$.getJSON(ajaxURL,function(data) {
+	$('h1').text(data.title);
+	$.each(data.items,function(i,photo) {
+		if (i<maxPhotos) {
+			var photoHTML = '<span class="image">';
+			photoHTML += '<a href="' + photo.link + '">';
+			photoHTML += '<img src="' + photo.media.m.replace('_m','_s') + '"></a>';
+			$('#photos').append(photoHTML);	
+		}
+	}); // koniec funkcji each
+}); // koniec funkcji get JSON
+			
+}); // koniec funkcji ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <p class="logo">JavaScript <i>i</i> jQuery <i class="mm">Nieoficjalny<br>podręcznik</i></p>
+  </div>
+	<div class="content">
+		<div class="main">
+			<h1>Obrazki z witryny Flickr</h1>
+		<div id="photos"></div>
+         <br class="clearLeft">
+		</div>
+	</div>
+  <div class="footer">
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </div>
+</div>
+</body>
+</html>

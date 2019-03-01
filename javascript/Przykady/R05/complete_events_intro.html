@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Prezentacja zdarzeń</title>
+<link href="../_css/site.css" rel="stylesheet">
+<script src="../_js/jquery-1.6.3.min.js"></script>
+<script>
+$(document).ready(function() {
+	$('html').dblclick(function() {
+		alert('ała!');
+	}); // koniec funkcji doubleclick
+	$('a').mouseover(function() {
+		var message = "<p>Wskazałeś odnośnik myszą!</p>";
+		$('.main').append(message);
+	}); // koniec funkcji mouseover
+	$('#button').click(function() {
+		$(this).val("Przestań!");
+	}); // koniec funkcji click
+	$('#textfield').focus(function() {
+		$(this).css('background-color','red');
+	}); // koniec funkcji focus
+}); // koniec funkcji ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <p class="logo">JavaScript <i>i</i> jQuery <i class="mm">Nieoficjalny<br>podręcznik</i></p>
+  </div>
+<div class="content">
+	<div class="main">
+<h1>Prezentacja zdarzeń</h1>
+<p><a href="#">Odnośnik</a></p>
+<form action="#" method="get">
+<fieldset><legend>Formularz</legend><p><input name="button" type="button" id="button" value="Przycisk formularza"></p>
+<p><input name="textfield" id="textfield" type="text"></p></fieldset>
+</form>
+</div>
+  <div class="footer">
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </div>
+
+</div>
+</body>
+</html>

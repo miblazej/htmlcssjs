@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Prosty kwiz</title>
+<link href="../_css/site.css" rel="stylesheet">
+<script>
+var score = 0;
+var pytania = [
+['Kto nasral pod ludowcem','Krymon'],
+['Z kim zalozyl sie Krymon', 'Z zydem'],
+['Dlaczego doszlo do nasrania','Byl to wyraz niezadowolenia wobec pracownikow osrodka publicznego'],
+['Co wisi Pawel Szymonowi','Gówno']
+];
+function zadaj(pytanie){
+  document.write('<p> a </p>');
+  var odpowiedz = prompt(pytanie[0],'');
+  if (odpowiedz == pytanie[1]){
+    alert('Prawidłowa odpowiedz!');
+    score++;
+  }
+  else{
+    alert('Błąd.Prawidłowa odpowiedź to ' + pytanie[1]);
+  }
+}
+for (var i=0; i<pytania.length; i++){
+  zadaj(pytania[i]);
+}
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <p class="logo">JavaScript <i>i</i> jQuery <i class="mm">Nieoficjalny<br>podręcznik</i></p>
+  </div>
+  <div class="content">
+    <div class="main">
+      <h1>Prosty kwiz</h1>
+      <script>
+        var wiadomosc = 'Liczba punktow ' + score;
+        wiadomosc += ' z ' + pytania.length + '.';
+        document.write('<p> ' + wiadomosc + '</p>');
+		</script>
+      </div>
+  </div>
+  <div class="footer">
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </div>
+</div>
+</body>
+</html>
