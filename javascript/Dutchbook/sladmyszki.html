@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<div id = franek> <img src="franek.jpg" alt="franek"></div>
+<div id = karol > <img src="karol.jpg" alt = "karol"></div>
+<div id = piotrek> <img src="piotrek.jpg" alt="piotrek"></div>
+
+<p>Test ikon podarzajacych za kursorem</p>
+<script>
+let ostatnia_pozycja;
+let franek = document.getElementById("franek");
+let karol = document.getElementById("karol");
+let piotrek = document.getElementById("piotrek");
+franek.style.position = "absolute";
+karol.style.position = "absolute";
+piotrek.style.position = "absolute";
+let kursory = document.getElementsByTagName("img");
+piotrek.hidden = true;
+karol.hidden = true;
+franek.hidden = true;
+window.addEventListener("mousemove", () => {
+let pozycjaX = event.clientX;
+let pozycjaY = event.clientY;
+console.log("X:" + pozycjaX + "Y:" + pozycjaY );
+piotrek.hidden = false;
+piotrek.style.top = pozycjaY + "px";
+piotrek.style.left = pozycjaX + "px";
+karol.hidden = false;
+karol.style.top = pozycjaY + 50 + "px";
+karol.style.left = pozycjaX + 50 + "px";
+franek.hidden = false;
+franek.style.top = pozycjaY + 100 + "px";
+franek.style.left = pozycjaX + 100 + "px";
+});
+</script>

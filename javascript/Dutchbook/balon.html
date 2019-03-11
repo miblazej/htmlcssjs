@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<p id="balon">🎈</p>
+
+<script>
+    let balon = document.querySelector("#balon");
+    let nowyRozmiar = 100;
+    balon.style.fontSize = 100 + "px";
+    window.addEventListener("keydown", event =>{
+        if (event.key == "ArrowUp" && nowyRozmiar < 330){
+            nowyRozmiar += nowyRozmiar * 0.1; 
+            balon.style.fontSize = nowyRozmiar + "px";
+            event.preventDefault();
+            console.log(balon.style.fontSize);
+        }
+        if (event.key == "ArrowDown" && nowyRozmiar < 330) {
+            nowyRozmiar -= nowyRozmiar * 0.1; 
+            balon.style.fontSize = nowyRozmiar + "px";
+            event.preventDefault();
+            console.log(balon.style.fontSize);
+        }
+        if (nowyRozmiar > 330){
+            balon.textContent = "💥"
+            balon.style.fontSize = nowyRozmiar + "px";
+            window.removeEventListener("keydown", event =>{
+                balon.style.fontSize = 350 + "px";
+            });
+        }
+    })
+
+</script>
