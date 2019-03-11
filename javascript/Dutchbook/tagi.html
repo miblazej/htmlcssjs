@@ -14,7 +14,7 @@
             for (let i = 0; i < node.childNodes.length; i++){
                 let dzieci = node.childNodes[i];
                 if (dzieci.nodeType == document.ELEMENT_NODE) {
-                    if (child.nodeType == tagName ) znalezione.push(dzieci);
+                    if (dzieci.nodeName == tagName ) znalezione.push(dzieci);
                     znajdz(dzieci);
                 }
             }
