@@ -62,3 +62,23 @@ function budujGraf(krawedzie){
 }
 
 const grafDrog = budujGraf(drogi);
+
+class StanMiejscowosci{
+    constructor(miejsce, przesylki){
+        this.miejsce = miejsce;
+        this.przesylki = przesylki;
+    }
+    ruch(cel){
+        if(!grafDrog[this.miejsce].includes(cel)){
+            return this;
+        }else{
+            let przesylki = this.przesylki.map(p=>{
+                if (p.miejsce != this.miejsce) return p;
+                return {place: cel, adres: p.adres};
+            }).filter(p=> p.miejsce != p.adres);
+            return new StanMiejscowosci(cel,przesylki);
+        }
+    }
+}
+
+// Do dokonczenia zero przyjemnosci z przepisywania kodu orz pozytku.

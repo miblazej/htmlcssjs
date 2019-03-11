@@ -1,0 +1,72 @@
+<!doctype html>
+
+<meta charset="utf8">
+
+<h1>Góry</h1>
+
+<div id="mountains"></div>
+
+<script>
+    const MOUNTAINS = [
+        { name: "Kilimanjaro", height: 5895, place: "Tanzania" , pierwszy_zdobywca: "Andrzej Golota" },
+        { name: "Everest", height: 8848, place: "Nepal", pierwszy_zdobywca: "Andrzej Golota"  },
+        { name: "Mount Fuji", height: 3776, place: "Japan" , pierwszy_zdobywca: "Andrzej Golota" },
+        { name: "Vaalserberg", height: 323, place: "Netherlands" , pierwszy_zdobywca: "Andrzej Golota" },
+        { name: "Denali", height: 6168, place: "United States" , pierwszy_zdobywca: "Andrzej Golota" },
+        { name: "Popocatepetl", height: 5465, place: "Mexico" , pierwszy_zdobywca: "Andrzej Golota" },
+        { name: "Mont Blanc", height: 4808, place: "Italy/France" , pierwszy_zdobywca: "Andrzej Golota" }
+    ];
+
+    function zbudujTabice(dane){
+        // Stworzenie nowego elementu strony tablica
+        let tablica = document.createElement("table");
+        // Stworzenie nowego elementu tablicy pola, tzn kolumny, oznaczenie klucza
+        let pola = Object.keys(dane[0]);
+        // Stworzenie nagowka tablicy z pierwszymi elementami roznych kategorii tr tworzy rzad
+        let naglowek = document.createElement("tr");
+        // Funkcja ktora tworzy dla kazdego elementu objektu pola ktory jest naglowkiem nowa komorke naglowka
+        pola.forEach( function(pole) {
+            // Utowrzenie komorki naglowka
+            let czesc_naglowka = document.createElement("th");
+            // Zadeklarowanie wypelnienia tekstowego pola
+            czesc_naglowka.textContent = pole;
+            // Dolaczenie komorki naglowka do naglowka
+            naglowek.appendChild(czesc_naglowka); 
+        });
+        // Dolaczenie naglowka do tablicy
+        tablica.appendChild(naglowek);
+        // Do tego momentu kod dziala
+
+        // dla kazdego klucza w tablicy dane zostaje stworzony naglowek kolumny
+        dane.forEach(function(ob) {
+            // Zakładam że dla każdego elementu tablicy dane zostaje stworzona jedna kolumna tabicy
+            let szereg = document.createElement("tr");
+            // Dla kazdego elementu obiektu pola zostaje wykonana lista instrukcji
+            pola.forEach(function(pole){
+                // zostaje utworzona komorka
+                let komorka = document.createElement("td");
+                // z tablicy dane zotaje poprana wartosc pola tekstowego
+                komorka.textContent = ob[pole];
+                // sprawdzenie jakiego rodzaju jest pole tekstowe
+                if (typeof ob[pole] == "number"){
+                    // wyrownanie tekstu do prawej strony
+                    komorka.style.textAlign = "right";
+                    komorka.style.borderColor = "blue";
+                }
+                // dodanie komorki do szeregu
+                szereg.appendChild(komorka);
+                
+            });
+            // Dodanie kolejnego rzedu to tablicy
+            tablica.appendChild(szereg);
+        });
+        // Zwrocenie obiektu tablicy
+        return tablica;
+    }
+    
+
+    function tagi(node,tag_name){
+        
+    }
+    document.querySelector("#mountains").appendChild(zbudujTabice(MOUNTAINS));
+</script>

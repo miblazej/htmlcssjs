@@ -1,0 +1,50 @@
+<!doctype html>
+
+<meta charset="utf8">
+
+<h1>Mountains</h1>
+
+<div id="mountains"></div>
+
+<script>
+    const MOUNTAINS = [
+        { name: "Kilimanjaro", height: 5895, place: "Tanzania" },
+        { name: "Everest", height: 8848, place: "Nepal" },
+        { name: "Mount Fuji", height: 3776, place: "Japan" },
+        { name: "Vaalserberg", height: 323, place: "Netherlands" },
+        { name: "Denali", height: 6168, place: "United States" },
+        { name: "Popocatepetl", height: 5465, place: "Mexico" },
+        { name: "Mont Blanc", height: 4808, place: "Italy/France" }
+    ];
+
+    function zbudujTablice(data) {
+        let tablica = document.createElement("table");
+
+        let pola = Object.keys(data[0]);
+        let headRow = document.createElement("tr");
+        pola.forEach(function (field) {
+            let headCell = document.createElement("th");
+            headCell.textContent = field;
+            headRow.appendChild(headCell);
+        });
+        tablica.appendChild(headRow);
+
+        data.forEach(function (ob) {
+            let szereg = document.createElement("tr");
+            pola.forEach(function (field) {
+                let komorka = document.createElement("td");
+                komorka.textContent = ob[field];
+                if (typeof ob[field] == "number") {
+                    komorka.style.textAlign = "right";
+                }
+                szereg.appendChild(komorka);
+            });
+            tablica.appendChild(szereg);
+        });
+
+        return tablica;
+    }
+
+    document.querySelector("#mountains")
+        .appendChild(zbudujTablice(MOUNTAINS));
+</script>
