@@ -1,3 +1,50 @@
 <!DOCTYPE html>
 
+<panel>
+    <div data-nazwa="pierwszy"> Tab jeden</div>
+    <div data-nazwa="drugi"> Tab dwa</div>
+    <div data-nazwa="trzeci"> Tab trzy</div>
+    <div data-nazwa="czwarty"> Tab cztery</div>
+</panel>
+<script>
+    function asTabs(node) {
+        // Utworzenie szeregu tabs w ktorym sa zawarte taby
+        // Kazdy tab sklada sie z node oraz z przycisku
+        // Kod JavaScript zmienia uklad strony
+        let tabs = Array.from(node.children).map(node => {
+            // Utworzenie elementu button
+            let przycisk = document.createElement("button");
+            // Pobranie nazwy 
+            przycisk.textContent = node.getAttribute("data-nazwa");
+            // Utworzenie elementów tab posiadających czlony oraz przyciski
+            let tab = { node, przycisk };
+            // Dodanie do kazdego z elementow nasluchu na wydarzenie
+            przycisk.addEventListener("click", () => wybierzTab(tab));
+            // zwrocenie utworzonego elementu do funkcji map
+            return tab;
+        });
+        // Utworzenie kontenera na wszysktkie przyciski utworzone w uzytej poprzednio
+        // funkcji map, deklaracja tabList
+        let listaTabow = document.createElement("div");
+        // petla for iterujaca poprzez wszyskie elementy czesci sub szeregow glownego szeregu tab
+        for (let { przycisk } of tabs) listaTabow.appendChild(przycisk);
+        // Dla kazdego z elelemntow listy dodanie nowego elementu do listy tabow na pierwsze
+        // miejsce w szeregu
+        node.insertBefore(listaTabow, node.firstChild);
 
+        // funkcja wybierz tabulator
+        function wybierzTab(wybranyTab) {
+            // petla for przebiegajaca poprzez wszystkie tabulatory
+            for (let tab of tabs) {
+                // funckja sprawdzajacy czy zostal wybrany poprawny tabulator
+                let wybrany = tab == wybranyTab;
+                // update zmiennej selected
+                tab.node.style.display = wybrany ? "" : "none";
+                tab.przycisk.style.color = wybrany ? "red" : "";
+            }
+        }
+
+        wybierzTab(tabs[0]);
+    }
+    asTabs(document.querySelector("panel"));
+</script>
