@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<canvas width="500" height="500"></canvas>
+<script>
+    let cx = document.querySelector("canvas").getContext("2d");
+    cx.beginPath();
+    cx.fillStyle = "red";
+    cx.lineWidth = "1";
+    cx.translate(70, 50);
+    cx.rotate(1 / 4 * Math.PI);
+    cx.rect(5, 5, 100, 100);
+    cx.fill();
+</script>

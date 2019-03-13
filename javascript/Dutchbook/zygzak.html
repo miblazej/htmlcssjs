@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<canvas width="500" height="500"></canvas>
+<script>
+    let cx = document.querySelector("canvas").getContext("2d");
+    cx.beginPath();
+    let x = 0;
+    let y = 0;
+    cx.lineTo(0, 0);
+    for (let i = 1; i <= 12; i++) {
+        y += 40;
+        x = i % 2 == 0 ? 0 : 480;
+        cx.lineTo(x, y);
+    }
+    cx.stroke();
+</script>

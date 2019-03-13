@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<canvas width="500" height="500"></canvas>
+<script>
+    let cx = document.querySelector("canvas").getContext("2d");
+    cx.translate(125, 125);
+    // petla for rysujaca 8 łuków gwiazdy
+    let centerX = 250;
+    let centerY = 250;
+    let r = 100;
+    for (let i = 0; i < 9; i++) {
+        let angle = i * Math.PI / 4;
+        cx.quadraticCurveTo(centerX, centerY, centerX + Math.cos(angle) * r, centerY + Math.sin(angle) * r);
+    }
+    cx.fillStyle = "gold";
+    cx.fill();
+</script>
