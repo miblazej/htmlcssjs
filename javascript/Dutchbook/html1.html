@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<p>Strona z zadaniami z HTML'a</p>
+<script>
+    const url = "https://eloquentjavascript.net/author";
+    const types = ["text/plain",
+        "text/html",
+        "aplication/json",
+        "application/rainbow+unicorns"];
+    async function pokazTypy() {
+        for (let typ of types) {
+            let resp = await fetch(url, { headers: { accept: typ } });
+            console.log('${typ}: ${await resp.text()}\n');
+        }
+    }
+    pokazTypy();
+</script>

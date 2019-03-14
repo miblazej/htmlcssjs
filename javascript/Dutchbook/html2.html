@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<textarea id="txarea">Podaj swoj kod tutaj </textarea>
+<button id="Przycisk"> Kompliuj</button>
+<script>
+    // Przypisanie elementow
+    let text = document.querySelector("#txarea");
+    let przycisk = document.querySelector("#Przycisk");
+    przycisk.addEventListener("click", () => {
+        console.log(eval(text.value));
+    });
+</script>

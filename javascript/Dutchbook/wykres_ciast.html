@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<canvas width="700" height="700"></canvas>
+<script>
+    const results = [
+        { imie: "Satysfakcja", liczba: 1043, kolor: "lightblue" },
+        { imie: "Neutralny", liczba: 563, kolor: "lightgreen" },
+        { imie: "Nieusatysfakcjonowny", liczba: 510, kolor: "pink" },
+        { imie: "Bez komentarza", liczba: 170, kolor: "silver" }
+    ]
+    let cx = document.querySelector("canvas").getContext("2d");
+    let total = results.reduce((sum, { liczba }) => sum + liczba, 0);
+    let currentAngle = -0.5 * Math.PI;
+    let xTekst = 0;
+    let yTekst = 0;
+    cx.font = "12px Arial";
+    cx.translate(350, 350);
+    for (let wynik of results) {
+        let katCiasta = ((wynik.liczba / total) * 2 * Math.PI)
+        xTekst = (200 * Math.cos(katCiasta / 2 + currentAngle));
+        yTekst = ((200) * Math.sin(katCiasta / 2 + currentAngle));
+        cx.strokeText(wynik.imie, xTekst, yTekst);
+        cx.beginPath();
+        cx.arc(0, 0, 100, currentAngle, currentAngle + katCiasta);
+        currentAngle += katCiasta;
+        cx.lineTo(0, 0);
+        cx.fillStyle = wynik.kolor;
+        cx.moveTo(xTekst, yTekst);
+        cx.stroke();
+        cx.fill();
+    }
+
+
+
+
+</script>
